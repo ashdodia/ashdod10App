@@ -12,7 +12,6 @@
 
     return {
         getK2CategoryContent: function (category, limit, page, successCallback, errorCallback) {
-            
             $http.get(feeds[category] + "&limit=" + limit + "&page=" + page + "&time=" + Date.getTime)
             .success(function (data, status, headers, config) {
                 successCallback(category, data);
