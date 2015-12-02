@@ -1,37 +1,99 @@
-﻿<ion-view view-title="jBackApp - Sections">
+﻿<ion-view view-title='<img src="img/top_logo.png">'>
     <ion-content>
-        <div class="item item-divider">
-            <h1 class="title">חדשות</h1>
+
+        <div class="featured_wrap">
+            <img ng-src="{{items.featured[0].images.imageXSmall}}">
+            <h3>{{items.featured[0].title}}</h3>
+
         </div>
-        <div ng-repeat="item in items.news" class="list card" ng-click="goToContent(item.id)">
-            <div class="item item-body">
+
+
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+
+        <div class="item item-divider item-assertive ">
+            <h2 class="title  ">חדשות</h2>
+        </div>
+        <div ng-repeat="item in items.news" class="list list-inset no_borders hp_item_warp" ng-click=" goToContent(item.id)" >
+            <div class="item item-body no_top_padding" >
+                <div class="item item-thumbnail-right">
+                    <img ng-src="{{item.images.imageXSmall}}">
+                    <p  ng-bind-html="item.title"></p>
+                </div>
+            </div>
+        </div>
+        <a class="button button-small button-assertive button-left" href="#/app/sections/news">עוד בחדשות</a>
+
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+
+
+        <div class="item item-divider  item-assertive ">
+            <h2 class="title">ספורט</h2>
+        </div>
+        <div ng-repeat="item in items.sport" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+            <div class="item item-body no_top_padding">
+                <div class="item item-thumbnail-right">
+                    <img ng-src="{{item.images.imageXSmall}}">
+                    <p  ng-bind-html="item.title"></p>
+                </div>
+            </div>
+        </div>
+        <a class="button button-small button-assertive button-left" href="#/app/sections/sport">עוד בספורט</a>
+
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+
+        <div class="item item-divider  item-assertive ">
+            <h2 class="title">תרבות</h2>
+        </div>
+        <div ng-repeat="item in items.culture" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+            <div class="item item-body no_top_padding">
+                <div class="item item-thumbnail-right">
+                    <img ng-src="{{item.images.imageXSmall}}">
+                    <p  ng-bind-html="item.title"></p>
+                </div>
+            </div>
+        </div>
+        <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד בתרבות</a>
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+        
+        <div class="black_box">
+            <div class="item item-divider  item-assertive ">
+                <h2 class="title ">לילות אשדוד</h2>
+            </div>
+            <div ng-repeat="item in items.nights" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+                <div class="item item-body no_top_padding">
+                    <div class="item item-thumbnail-right">
+                        <img ng-src="{{item.images.imageXSmall}}">
+                        <p ng-bind-html="item.title"></p>
+                    </div>
+                </div>
+            </div>
+            <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד לילות אשדוד</a>
+
+        </div>
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+
+        
+        <div class="item item-divider  item-assertive ">
+            <h2 class="title">עסקים</h2>
+        </div>
+        <div ng-repeat="item in items.business" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+            <div class="item item-body no_top_padding">
                 <div class="item item-thumbnail-right">
                     <img ng-src="{{item.images.imageXSmall}}">
                     <p ng-bind-html="item.title"></p>
                 </div>
             </div>
         </div>
-        <div class="item item-divider">
-            <h1 class="title">ספורט</h1>
-        </div>
-        <div ng-repeat="item in items.sport" class="list card" ng-click="goToContent(item.id)">
-            <div class="item item-body">
-                <div class="item item-thumbnail-right">
-                    <img ng-src="{{item.images.imageXSmall}}">
-                    <p ng-bind-html="item.title"></p>
-                </div>
-            </div>
-        </div>
-        <div class="item item-divider">
-            <h1 class="title">חינוך</h1>
-        </div>
-        <div ng-repeat="item in items.culture" class="list card" ng-click="goToContent(item.id)">
-            <div class="item item-body">
-                <div class="item item-thumbnail-right">
-                    <img ng-src="{{item.images.imageXSmall}}">
-                    <p ng-bind-html="item.title"></p>
-                </div>
-            </div>
-        </div>
+        <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד בתרבות</a>
     </ion-content>
 </ion-view>

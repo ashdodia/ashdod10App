@@ -1,1 +1,82 @@
-body {direction:rtl;}
+﻿@font-face {
+  font-family: 'FbReformaNarrow';
+  src: url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.eot'); /* IE9 Compat Modes */
+  src: url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.woff') format('woff'), /* Modern Browsers */
+       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+
+
+
+body {direction:rtl; font-family: 'FbReformaNarrow';}
+h1 , h2, h3 , h4 , p{font-family: 'FbReformaNarrow';}
+/**** ashdod10 ****/
+.scroll-content{direction:rtl;}
+img{width:100%;}
+.header-item{text-align:center;}
+.nav-bar-block img {
+    max-height: 100%;
+    margin-top:5px;
+}
+.card, .list-inset{margin:2px;}
+.item-body{padding:0;}
+.item.item-body{border-radius:0 !important;}
+
+.no_top_padding p{
+    padding-top:0;
+    margin-top:0;
+}
+
+.no_borders .item
+{
+border-top: 0px !important;
+border-left: 0px;
+border-right: 0px;
+}
+
+.hp_item_warp  img{
+    max-width: none !important;
+    width: 35% !important;
+}
+
+.hp_item_warp p{
+    margin: 0 20px 0 0;
+}
+
+.button-left{
+    float:left;
+    margin:5px; 
+    clear:both;
+}
+
+.item-assertive h2{
+    color:#ffffff;
+}
+
+.bar-subheader h3{
+    text-align: right !important;
+    color:#000000;
+}
+.bar-subheader{
+    background:#ececec;
+}
+
+.banner_wrap{
+    width:100%;
+    margin:10px 0; 
+}
+
+.featured_wrap h3{
+    margin-top:5px;
+}
+
+
+.black_box , .black_box .card, .black_box .list-inset , .black_box .item{background-color:#000000 !important;color:#ffffff;background:#000000 !important;}
+.black_box a , .black_box h2 , .black_box p{ color:#fff;}
+.black_box .item.item-assertive{background:#e42112 !important;background-color:#e42112 !important;}
+.black_box .item{border-bottom:1px #e42112 solid ;}
+
+
+.item-body h1{font-size:26px;}

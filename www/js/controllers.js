@@ -38,8 +38,8 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
     //var module
-    var homeModules = ["news", "sport", "culture"]
-    var limit = 3
+    var homeModules = ["news", "sport", "culture", "featured" , "education" , "religion" , "square" , "nights" , "weekend" , "business"]
+    var limit = 4
     var page = 1
     $scope.items = []
 
@@ -138,3 +138,5 @@ angular.module('starter.controllers', [])
     FeedService.getK2ContentItem($stateParams.contentId, $scope.successGetContentItem, $scope.errorGetContentItem);
 
 });
+
+

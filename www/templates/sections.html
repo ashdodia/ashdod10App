@@ -1,12 +1,23 @@
-<ion-view view-title="jBackApp - Sections">
-  <ion-content>
-    <div ng-repeat="item in items" class="list card" ng-click="goToContent(item.id)">
+﻿<ion-view  view-title='<img src="img/top_logo.png">'>
+    <div class="bar bar-subheader">
+        <h3 class="title">{{items[0].category_name}}</h3>
+    </div>
+  <ion-content class="has-subheader">
+    <div ng-repeat="item in items" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
       <div class="item item-body">
           <div class="item item-thumbnail-right">
               <img ng-src="{{item.images.imageXSmall}}">
               <p ng-bind-html="item.title"></p>
+              
           </div>
        </div>
     </div>
+
   </ion-content>
+
+   
+        
+
+
+
 </ion-view>
