@@ -5,7 +5,14 @@
     var feeds = {
         news: "http://ashdod10.co.il/get/k2/items?cats=2",
         sport: "http://ashdod10.co.il/get/k2/items?cats=3",
-        culture: "http://ashdod10.co.il/get/k2/items?cats=17"
+        culture: "http://ashdod10.co.il/get/k2/items?cats=5",
+        education: "http://ashdod10.co.il/get/k2/items?cats=17",
+        religion: "http://ashdod10.co.il/get/k2/items?cats=18",
+        square: "http://ashdod10.co.il/get/k2/items?cats=19",
+        nights: "http://ashdod10.co.il/get/k2/items?cats=20",
+        weekend: "http://ashdod10.co.il/get/k2/items?cats=21",
+        business: "http://ashdod10.co.il/get/k2/items?cats=22",
+        featured: "http://ashdod10.co.il/get/k2/items?cats=1"
     };
 
     var content = "http://ashdod10.co.il/get/k2/items?id="
