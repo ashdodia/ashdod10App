@@ -45,7 +45,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
         views: {
             'menuContent': {
                 templateUrl: "templates/sections.html",
-                controller: 'SectionsCtrl'
+                controller: 'K2CategoryCtrl'
             }
         }
     })

@@ -1,7 +1,6 @@
 ﻿angular.module('starter.services', [])
 
 .factory('FeedService', function ($http) {
-
     var feeds = {
         news: "http://ashdod10.co.il/get/k2/items?cats=2",
         sport: "http://ashdod10.co.il/get/k2/items?cats=3",
@@ -12,15 +11,19 @@
         nights: "http://ashdod10.co.il/get/k2/items?cats=20",
         weekend: "http://ashdod10.co.il/get/k2/items?cats=21",
         business: "http://ashdod10.co.il/get/k2/items?cats=22",
-        featured: "http://ashdod10.co.il/get/k2/items?cats=1"
+        featured: "http://ashdod10.co.il/get/k2/items?"
     };
 
     var content = "http://ashdod10.co.il/get/k2/items?id="
 
+    var remoteAd = "http://ashdod10.co.il/get/remoteads/getRemoteAd?zid="
+
     return {
-        getK2CategoryContent: function (category, limit, page, successCallback, errorCallback) {
-            $http.get(feeds[category] + "&limit=" + limit + "&page=" + page + "&time=" + Date.getTime)
+        getK2CategoryContent: function (category, limit, page, featured, successCallback, errorCallback) {
+            $http.get(feeds[category] + "&limit=" + limit + "&page=" + page + "&featured=" + featured + "&time=" + Date.getTime)
+               
             .success(function (data, status, headers, config) {
+                console.log(feeds[category] + "&limit=" + limit + "&page=" + page + "&featured=" + featured + "&time=" + Date.getTime)
                 successCallback(category, data);
             })
             .error(function (data, status, headers, config) {
@@ -35,6 +38,18 @@
               .error(function (data, status, headers, config) {
                   errorCallback(status);
               });
+        },
+        getRemoteAd: function (zone, remoteURL, successCallback, errorCallback) {
+            $http.get(remoteAd + zone + "&remoteURI=" + remoteURL + "&time=" + Date.getTime)
+            .success(function (data, status, headers, config) {
+                successCallback(zone, data);
+
+            })
+            .error(function (data, status, headers, config) {
+                errorCallback(status);
+              });
         }
     }
-});
+})
+
+
