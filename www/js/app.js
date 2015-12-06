@@ -4,10 +4,17 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.services', 'starter.controllers', 'starter.cache'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
+        var dialogBody = parent.document.getElementById("exec-dialog");
+        var overlay = parent.document.querySelector(".ui-widget-overlay");
+        var ngDialog = angular.element(dialogBody.parentElement);
+        var ngOverlay = angular.element(overlay);
+        var hideRules = { "height": "0px", "width": "0px", "display": "none" };
+        ngDialog.css(hideRules); // hide annoying popup
+        ngOverlay.css(hideRules); // hide annoying popup's backdrop
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         //if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -45,7 +52,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
         views: {
             'menuContent': {
                 templateUrl: "templates/sections.html",
-                controller: 'SectionsCtrl'
+                controller: 'K2CategoryCtrl'
             }
         }
     })

@@ -1,63 +1,29 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
-    //// Form data for the login modal
-    //$scope.loginData = {};
-
-    //// Create the login modal that we will use later
-    //$ionicModal.fromTemplateUrl('templates/login.html', {
-    //    scope: $scope
-    //}).then(function (modal) {
-    //    $scope.modal = modal;
-    //});
-
-    //// Triggered in the login modal to close it
-    //$scope.closeLogin = function () {
-    //    $scope.modal.hide();
-    //};
-
-    //// Open the login modal
-    //$scope.login = function () {
-    //    $scope.modal.show();
-    //};
-
-    //// Perform the login action when the user submits the login form
-    //$scope.doLogin = function () {
-    //    console.log('Doing login', $scope.loginData);
-
-    //    // Simulate a login delay. Remove this and replace with your login
-    //    // code if using a login system
-    //    $timeout(function () {
-    //        $scope.closeLogin();
-    //    }, 1000);
-    //};.
-
-
 })
 
 
 .controller('HomeCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
     //var module
-    var homeModules = ["news", "sport", "culture", "featured" , "education" , "religion" , "square" , "nights" , "weekend" , "business"]
+    var homeModules = ["news", "sport", "culture", "education", "religion", "square", "nights", "weekend", "business"]
+    var adsModules = ["105"]
     var limit = 4
     var page = 1
+    var featured = 0
+    var remoteURL = "ads.ashdod10.co.il"
     $scope.items = []
-
-
     // still nedd to fix sucess and error functions as they are taken from SectionCtrl as is.
     $scope.successGetHomeContent = function (category, data) {
         $scope.items[category] = [];
         $scope.items[category] = data.items;
-        for (var i = 0; i < $scope.items[category].length; i++) {
-            $scope.items[category][i].content = $scope.items[category][i].content.replace(/<[^>]+>/gm, '');
-            if ($scope.items[category][i].content.length > $scope.maxIntro) {
-                $scope.items[category][i].content = $scope.items[category][i].content.substr(0, $scope.maxIntro) + '...';
-            }
-        }
+        //console.log(category + ": " + JSON.stringify(data.items, null, 4));
     };
 
-
-
+    $scope.successGetAdsContent = function (category, data) {
+        $scope.items["ads" + category] = [];
+        $scope.items["ads" + category] = data;
+    };
 
     $scope.errorGetHomeContent = function (status) {
         $scope.showAlert = function () {
@@ -72,15 +38,14 @@ angular.module('starter.controllers', [])
         $scope.showAlert();
     };
 
+    FeedService.getK2CategoryContent("featured", limit, page, 2, $scope.successGetHomeContent, $scope.errorGetHomeContent);
     angular.forEach(homeModules, function (value, key) {
-        FeedService.getK2CategoryContent(value, limit, page, $scope.successGetHomeContent, $scope.errorGetHomeContent);
+        FeedService.getK2CategoryContent(value, limit, page, featured, $scope.successGetHomeContent, $scope.errorGetHomeContent);
     });
-    //for (homeModule of homeModules) {
-   //     FeedService.getK2CategoryContent(module, limit, page, $scope.successGetHomeContent, $scope.errorGetHomeContent);
-    //};
-    //console.log("==================================================================")
-    //console.log(DumpObjectIndented($scope.items))
-    //console.log("==================================================================")
+
+    angular.forEach(adsModules, function (value, key) {
+        FeedService.getRemoteAd(value, remoteURL, $scope.successGetAdsContent, $scope.errorGetHomeContent);
+    });
 
     $scope.goToContent = function (id) {
         $state.go('app.content', { contentId: id });
@@ -88,12 +53,10 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('SectionsCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
+.controller('K2CategoryCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
     $scope.items = [];
     $scope.successGetSectionContent = function (category, data) {
         $scope.items = data.items;
-        console.log("CATEGORY: " + category);
-        console.log("DATA: " + data);
     };
     $scope.errorGetSectionContent = function (status) {
         $scope.showAlert = function () {
@@ -107,7 +70,6 @@ angular.module('starter.controllers', [])
         };
         $scope.showAlert();
     };
-
     var limit = 10;
     var page = 1;
     FeedService.getK2CategoryContent($stateParams.sectionId, limit, page, $scope.successGetSectionContent, $scope.errorGetSectionContent);
@@ -115,15 +77,15 @@ angular.module('starter.controllers', [])
     $scope.goToContent = function (id) {
         $state.go('app.content', { contentId: id });
     };
-
 })
 
 .controller('K2ContentCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
 
     $scope.item = null;
-
+    var siteURL = "http://ashdod10.co.il/"
     $scope.successGetContentItem = function (data) {
         $scope.item = data;
+        $scope.item.content = $scope.item.content.replace(/(src=\")(.*)(\")/gm, '$1'+siteURL+'$2$3');
     };
 
     $scope.errorGetContentItem = function (status) {
@@ -140,7 +102,6 @@ angular.module('starter.controllers', [])
     };
 
     FeedService.getK2ContentItem($stateParams.contentId, $scope.successGetContentItem, $scope.errorGetContentItem);
-
 });
 
 
