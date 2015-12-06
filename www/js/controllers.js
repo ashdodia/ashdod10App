@@ -8,7 +8,7 @@ angular.module('starter.controllers', [])
     //var module
     var homeModules = ["news", "sport", "culture", "education", "religion", "square", "nights", "weekend", "business"]
     var adsModules = ["105", "101", "103" , "104" , "98"]
-    var limit = 4
+    var limit = 5
     var page = 1
     var featured = 0
     var remoteURL = "ads.ashdod10.co.il"
@@ -54,6 +54,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('K2CategoryCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
+
     $scope.items = [];
     $scope.successGetSectionContent = function (category, data) {
         $scope.items = data.items;
@@ -70,12 +71,60 @@ angular.module('starter.controllers', [])
         };
         $scope.showAlert();
     };
-    var limit = 10;
-    var page = 1;
-    FeedService.getK2CategoryContent($stateParams.sectionId, limit, page, $scope.successGetSectionContent, $scope.errorGetSectionContent);
+
+    $scope.itemsPerPage = 5;
+    $scope.currentPage = 0;
+    $scope.total = 100;
+    var featured = 1;
+
+    $scope.range = function () {
+        var rangeSize = 5;
+        var ret = [];
+        var start;
+
+        start = $scope.currentPage;
+        if (start > $scope.pageCount() - rangeSize) {
+            start = $scope.pageCount() - rangeSize;
+        }
+
+        for (var i = start; i < start + rangeSize; i++) {
+            ret.push(i);
+        }
+        return ret;
+    };
+
+
+    $scope.prevPage = function () {
+        if ($scope.currentPage > 0) {
+            $scope.currentPage--;
+        }
+    };
+
+    $scope.prevPageDisabled = function () {
+        return $scope.currentPage === 0 ? "disabled" : "";
+    };
+
+    $scope.nextPage = function () {
+        if ($scope.currentPage < $scope.pageCount() - 1) {
+            $scope.currentPage++;
+        }
+    };
+
+    $scope.nextPageDisabled = function () {
+        return $scope.currentPage === $scope.pageCount() - 1 ? "disabled" : "";
+    };
+
+    $scope.pageCount = function () {
+        return Math.ceil($scope.total / $scope.itemsPerPage);
+    };
+
+    $scope.$watch("currentPage", function (newValue, oldValue) {
+        FeedService.getK2CategoryContent($stateParams.sectionId, $scope.itemsPerPage, newValue, featured, $scope.successGetSectionContent, $scope.errorGetSectionContent);
+        $scope.total = Item.total();
+    });
 
     $scope.goToContent = function (id) {
-        $state.go('app.content', { contentId: id });
+        $state.go('app.content', { contentId: id }); 
     };
 })
 
