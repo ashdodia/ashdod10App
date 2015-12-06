@@ -3,22 +3,12 @@
 
 
         <!-- Start featured -->
-        <ion-slide-box on-slide-changed="slideHasChanged($index)" style="direction:ltr">
-            <ion-slide>
-                <img ng-src="{{items.featured[0].images.imageXSmall}}">
-                <h3 style="direction:rtl">{{items.featured[0].title}}</h3>
-            </ion-slide>
-            <ion-slide>
-                <img ng-src="{{items.featured[1].images.imageXSmall}}">
-                <h3 style="direction:rtl">{{items.featured[1].title}}</h3> 
-            </ion-slide>
-            <ion-slide>
-                <img ng-src="{{items.featured[2].images.imageXSmall}}">
-                <h3 style="direction:rtl">{{items.featured[2].title}}</h3>
-            </ion-slide>
-            <ion-slide>
-                 <img ng-src="{{items.featured[3].images.imageXSmall}}">
-                 <h3 style="direction:rtl">{{items.featured[3].title}}</h3>
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" style="direction:ltr" show-pager="false" auto-play="true" does-continue="true">
+            <ion-slide  ng-repeat="item in items.featured" ng-click=" goToContent(item.id)">
+                <div class="featured_wrap">
+                    <img ng-src="{{item.images.imageXSmall}}">
+                    <h3  ng-bind-html="item.title"></h3>
+                </div>
             </ion-slide>
         </ion-slide-box>
         <!-- end featured -->
@@ -163,7 +153,7 @@
                     </div>
                 </div>
             </div>
-            <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד בתרבות</a>
+            <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד בעסקים</a>
         <!-- end business -->
 
         <!-- Start banner -->

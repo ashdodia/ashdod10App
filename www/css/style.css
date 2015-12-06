@@ -74,12 +74,7 @@ border-right: 0px;
     margin:0;
 }
 
-.featured_wrap h3{
-    margin-top:5px;
-    padding:0 10px;
 
-
-}
 
 .item_title h1{font-size:36px; margin:5px 0;line-height: 33px; margin:0 5px 5px 5px;}
 .date_and_author{text-align:center; background:#e3e3e3;}
@@ -96,8 +91,11 @@ border-right: 0px;
 .item p , .item-body{font-size:20px;}
 .app_menu a{font-size:22px;}
 
+.featured_wrap img{margin-bottom:0; padding-bottom:0;}
+.featured_wrap h3{ direction:rtl; background:#ec1b23; margin-top:0;  padding:0 10px; color:#fff;}
 
 @media only screen and (max-width: 480px) {
-    img{ width:100%; max-width:none;}
+    img{ width:100%; max-width:none;
+    height: auto;}
 }
 
