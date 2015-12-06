@@ -5,7 +5,7 @@
         <!-- Start featured -->
         <ion-slide-box on-slide-changed="slideHasChanged($index)" style="direction:ltr">
             <ion-slide>
-                <img ng-src="{{items.news[0].images.imageXSmall}}">
+                <img ng-src="{{items.featured[0].images.imageXSmall}}">
                 <h3 style="direction:rtl">{{items.featured[0].title}}</h3>
             </ion-slide>
             <ion-slide>
@@ -24,9 +24,11 @@
         <!-- end featured -->
 
         <!-- Start banner -->
-            <div class="banner_wrap">
-                <img src="http://placehold.it/350x100">
-            </div>
+        <div class="banner_wrap">
+            <a href="{{items.ads103.bannerUrl}}">
+                <img ng-src="{{items.ads103.bannerImage}}">
+            </a>
+        </div> 
         <!-- end banner -->
 
         <!-- Start news -->
@@ -60,7 +62,9 @@
 
         <!-- Start banner -->
         <div class="banner_wrap">
-            <img src="http://placehold.it/350x100">
+            <a href="{{items.ads104.bannerUrl}}">
+                <img ng-src="{{items.ads104.bannerImage}}">
+            </a>
         </div>
         <!-- end banner -->
 
@@ -85,7 +89,9 @@
 
         <!-- Start banner -->
         <div class="banner_wrap">
-            <img src="http://placehold.it/350x100">
+            <a href="{{items.ads101.bannerUrl}}">
+                <img ng-src="{{items.ads101.bannerImage}}">
+            </a>
         </div>
         <!-- end banner -->
 
@@ -111,7 +117,9 @@
 
         <!-- Start banner -->
         <div class="banner_wrap">
-            <img src="http://placehold.it/350x100">
+            <a href="{{items.ads98.bannerUrl}}">
+                <img ng-src="{{items.ads98.bannerImage}}">
+            </a>
         </div>
         <!-- end banner -->
 
