@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
     $scope.successGetHomeContent = function (category, data) {
         $scope.items[category] = [];
         $scope.items[category] = data.items;
-        console.log(category + ": " + JSON.stringify(data.items, null, 4));
+        //console.log(category + ": " + JSON.stringify(data.items, null, 4));
     };
 
     $scope.successGetAdsContent = function (category, data) {
@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
     });
 
     angular.forEach(adsModules, function (value, key) {
-         FeedService.getRemoteAd(value, remoteURL, $scope.successGetAdsContent, $scope.errorGetHomeContent);
+        FeedService.getRemoteAd(value, remoteURL, $scope.successGetAdsContent, $scope.errorGetHomeContent);
     });
 
     $scope.goToContent = function (id) {
@@ -57,8 +57,6 @@ angular.module('starter.controllers', [])
     $scope.items = [];
     $scope.successGetSectionContent = function (category, data) {
         $scope.items = data.items;
-        console.log("CATEGORY: " + category);
-        console.log("DATA: " + data);
     };
     $scope.errorGetSectionContent = function (status) {
         $scope.showAlert = function () {
@@ -84,9 +82,10 @@ angular.module('starter.controllers', [])
 .controller('K2ContentCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
 
     $scope.item = null;
-
+    var siteURL = "http://ashdod10.co.il/"
     $scope.successGetContentItem = function (data) {
         $scope.item = data;
+        $scope.item.content = $scope.item.content.replace(/(src=\")(.*)(\")/gm, '$1'+siteURL+'$2$3');
     };
 
     $scope.errorGetContentItem = function (status) {

@@ -20,10 +20,12 @@
 
     return {
         getK2CategoryContent: function (category, limit, page, featured, successCallback, errorCallback) {
-            $http.get(feeds[category] + "&limit=" + limit + "&page=" + page + "&featured=" + featured + "&time=" + Date.getTime)
+            $http.get(feeds[category] + "&limit=" + limit + "&page=" + page + "&featured=" + featured, { cache: true })
                
             .success(function (data, status, headers, config) {
-                console.log(feeds[category] + "&limit=" + limit + "&page=" + page + "&featured=" + featured + "&time=" + Date.getTime)
+                //var mycache = $cacheFactory.get('$http');
+                console.log("MYCONFIG: " + JSON.stringify($http.defaults.cache, null, 4))
+                //console.log(feeds[category] + "&limit=" + limit + "&page=" + page + "&featured=" + featured)
                 successCallback(category, data);
             })
             .error(function (data, status, headers, config) {
@@ -31,7 +33,7 @@
             });
         },
         getK2ContentItem: function (id, successCallback, errorCallback) {
-            $http.get(content + id + "&time=" + Date.getTime)
+            $http.get(content + id)
               .success(function (data, status, headers, config) {
                   successCallback(data);
               })
@@ -40,7 +42,7 @@
               });
         },
         getRemoteAd: function (zone, remoteURL, successCallback, errorCallback) {
-            $http.get(remoteAd + zone + "&remoteURI=" + remoteURL + "&time=" + Date.getTime)
+            $http.get(remoteAd + zone + "&remoteURI=" + remoteURL + "&time=" + Math.random())
             .success(function (data, status, headers, config) {
                 successCallback(zone, data);
 
