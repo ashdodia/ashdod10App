@@ -14,7 +14,7 @@ body {direction:rtl; font-family: 'FbReformaNarrow';}
 h1 , h2, h3 , h4 , p{font-family: 'FbReformaNarrow';}
 /**** ashdod10 ****/
 .scroll-content{direction:rtl;}
-img{width:100%;}
+img{max-width:100%;}
 .header-item{text-align:center;}
 .nav-bar-block img {
     max-height: 100%;
@@ -35,14 +35,14 @@ border-top: 0px !important;
 border-left: 0px;
 border-right: 0px;
 }
-
+/*
 .hp_item_warp  img{
     max-width: none !important;
     width: 35% !important;
 }
-
+*/
 .hp_item_warp p{
-    margin: 0 20px 0 0;
+    font-size:18px;
 }
 
 .button-left{
@@ -66,11 +66,23 @@ border-right: 0px;
 .banner_wrap{
     width:100%;
     margin:10px 0; 
+    clear:both;
+}
+
+.featured_wrap , .featured_wrap .col{
+    padding:0;
+    margin:0;
 }
 
 .featured_wrap h3{
     margin-top:5px;
+    padding:0 10px;
+
+
 }
+
+.item_title h1{font-size:36px; margin:5px 0;line-height: 33px; margin:0 5px 5px 5px;}
+.date_and_author{text-align:center; background:#e3e3e3;}
 
 
 .black_box , .black_box .card, .black_box .list-inset , .black_box .item{background-color:#000000 !important;color:#ffffff;background:#000000 !important;}
@@ -79,4 +91,13 @@ border-right: 0px;
 .black_box .item{border-bottom:1px #e42112 solid ;}
 
 
-.item-body h1{font-size:26px;}
+
+
+.item p , .item-body{font-size:20px;}
+.app_menu a{font-size:22px;}
+
+
+@media only screen and (max-width: 480px) {
+    img{ width:100%; max-width:none;}
+}
+

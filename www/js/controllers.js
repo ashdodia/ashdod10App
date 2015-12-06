@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 .controller('HomeCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
     //var module
     var homeModules = ["news", "sport", "culture", "education", "religion", "square", "nights", "weekend", "business"]
-    var adsModules = ["105"]
+    var adsModules = ["105", "101", "103" , "104" , "98"]
     var limit = 4
     var page = 1
     var featured = 0
