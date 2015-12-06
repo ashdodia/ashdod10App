@@ -43,6 +43,7 @@ angular.module('starter.controllers', [])
     var page = 1
     $scope.items = []
 
+
     // still nedd to fix sucess and error functions as they are taken from SectionCtrl as is.
     $scope.successGetHomeContent = function (category, data) {
         $scope.items[category] = [];
@@ -54,6 +55,9 @@ angular.module('starter.controllers', [])
             }
         }
     };
+
+
+
 
     $scope.errorGetHomeContent = function (status) {
         $scope.showAlert = function () {

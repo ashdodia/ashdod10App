@@ -15,47 +15,54 @@
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="right">
+  <ion-side-menu side="right" class="app_menu">
     
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
-          Login
-        </ion-item>
-        <ion-item menu-close href="#/app/home">
+    
+        <ion-item menu-close href="#/app/home" class="item-assertive">
+            <i class="icon ion-icon ion-ios-home-outline icon-right"></i> 
            עמוד הבית
         </ion-item>
-        <ion-item menu-close href="#/app/sections/news">
-          חדשות
+        <ion-item menu-close href="#/app/sections/news" class="item-assertive">
+         <i class="icon ion-icon ion-ios-paper icon-right"></i> חדשות
         </ion-item>
-        <ion-item menu-close href="#/app/sections/sport">
+        <ion-item menu-close href="#/app/sections/sport" class="item-assertive">
+            <i class="icon ion-icon ion-ios-football icon-right"></i> 
           ספורט
         </ion-item>
-        <ion-item menu-close href="#/app/sections/culture">
+        <ion-item menu-close href="#/app/sections/culture" class="item-assertive">
+            <i class="icon ion-icon ion-mic-c icon-right"></i> 
           תרבות
         </ion-item>
 
-          <ion-item menu-close href="#/app/sections/education">
+          <ion-item menu-close href="#/app/sections/education" class="item-assertive">
+              <i class="icon ion-icon ion-university icon-right"></i> 
               חינוך
           </ion-item>
 
-          <ion-item menu-close href="#/app/sections/religion">
+          <ion-item menu-close href="#/app/sections/religion" class="item-assertive">
+              <i class="icon ion-icon ion-ios-football icon-right"></i> 
               דת ומסורת
           </ion-item>
 
-          <ion-item menu-close href="#/app/sections/square">
+          <ion-item menu-close href="#/app/sections/square" class="item-assertive">
+              <i class="icon ion-icon ion-chatboxes icon-right"></i> 
               כיכר העיר
           </ion-item>
 
-          <ion-item menu-close href="#/app/sections/nights">
+          <ion-item menu-close href="#/app/sections/nights" class="item-assertive">
+              <i class="icon ion-icon ion-ios-moon icon-right"></i> 
               לילות אשדוד
           </ion-item>
 
-          <ion-item menu-close href="#/app/sections/weekend">
+          <ion-item menu-close href="#/app/sections/weekend" class="item-assertive">
+              <i class="icon ion-icon ion-ios-book icon-right"></i> 
              סוף שבוע
           </ion-item>
-          <ion-item menu-close href="#/app/sections/business">
-              סוף שבוע
+          <ion-item menu-close href="#/app/sections/business" class="item-assertive">
+              <i class="icon ion-icon ion-ios-briefcase icon-right"></i> 
+              עסקים
           </ion-item>
       </ion-list>
     </ion-content>

@@ -1,99 +1,207 @@
 ﻿<ion-view view-title='<img src="img/top_logo.png">'>
     <ion-content>
 
-        <div class="featured_wrap">
-            <img ng-src="{{items.featured[0].images.imageXSmall}}">
-            <h3>{{items.featured[0].title}}</h3>
 
-        </div>
+        <!-- Start featured -->
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" style="direction:ltr">
+            <ion-slide>
+                <img ng-src="{{items.news[0].images.imageXSmall}}">
+                <h3 style="direction:rtl">{{items.featured[0].title}}</h3>
+            </ion-slide>
+            <ion-slide>
+                <img ng-src="{{items.featured[1].images.imageXSmall}}">
+                <h3 style="direction:rtl">{{items.featured[1].title}}</h3> 
+            </ion-slide>
+            <ion-slide>
+                <img ng-src="{{items.featured[2].images.imageXSmall}}">
+                <h3 style="direction:rtl">{{items.featured[2].title}}</h3>
+            </ion-slide>
+            <ion-slide>
+                 <img ng-src="{{items.featured[3].images.imageXSmall}}">
+                 <h3 style="direction:rtl">{{items.featured[3].title}}</h3>
+            </ion-slide>
+        </ion-slide-box>
+        <!-- end featured -->
 
+        <!-- Start banner -->
+            <div class="banner_wrap">
+                <img src="http://placehold.it/350x100">
+            </div>
+        <!-- end banner -->
 
-        <div class="banner_wrap">
-            <img src="http://placehold.it/350x100">
-        </div>
-
-        <div class="item item-divider item-assertive ">
-            <h2 class="title  ">חדשות</h2>
-        </div>
-        <div ng-repeat="item in items.news" class="list list-inset no_borders hp_item_warp" ng-click=" goToContent(item.id)" >
-            <div class="item item-body no_top_padding" >
-                <div class="item item-thumbnail-right">
-                    <img ng-src="{{item.images.imageXSmall}}">
-                    <p  ng-bind-html="item.title"></p>
+        <!-- Start news -->
+            <div class="item item-divider item-assertive ">
+                <h2 class="title  ">חדשות</h2>
+            </div>
+            <div ng-repeat="item in items.news" class="list list-inset no_borders hp_item_warp" ng-click=" goToContent(item.id)">
+                <div class="item item-body no_top_padding " ng-if="$first">
+                    <div class="item row responsive-sm">
+                        <div class="col" >
+                            <img ng-src="{{item.images.imageXSmall}}">
+                        </div>
+                        <div class="col">
+                            <p ng-bind-html="item.title"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item item-body no_top_padding" ng-if="!$first">
+                    <div class="row item item-thumbnail-right">
+                        <div class="col col-33">
+                            <img ng-src="{{item.images.imageXSmall}}">
+                        </div>
+                        <div class="col col-67">
+                            <p ng-bind-html="item.title"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <a class="button button-small button-assertive button-left" href="#/app/sections/news">עוד בחדשות</a>
+            <a class="button button-small button-assertive button-left" href="#/app/sections/news">עוד בחדשות</a>
+        <!-- end news -->
 
+        <!-- Start banner -->
         <div class="banner_wrap">
             <img src="http://placehold.it/350x100">
         </div>
+        <!-- end banner -->
 
-
-        <div class="item item-divider  item-assertive ">
-            <h2 class="title">ספורט</h2>
-        </div>
-        <div ng-repeat="item in items.sport" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
-            <div class="item item-body no_top_padding">
-                <div class="item item-thumbnail-right">
-                    <img ng-src="{{item.images.imageXSmall}}">
-                    <p  ng-bind-html="item.title"></p>
-                </div>
-            </div>
-        </div>
-        <a class="button button-small button-assertive button-left" href="#/app/sections/sport">עוד בספורט</a>
-
-        <div class="banner_wrap">
-            <img src="http://placehold.it/350x100">
-        </div>
-
-        <div class="item item-divider  item-assertive ">
-            <h2 class="title">תרבות</h2>
-        </div>
-        <div ng-repeat="item in items.culture" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
-            <div class="item item-body no_top_padding">
-                <div class="item item-thumbnail-right">
-                    <img ng-src="{{item.images.imageXSmall}}">
-                    <p  ng-bind-html="item.title"></p>
-                </div>
-            </div>
-        </div>
-        <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד בתרבות</a>
-        <div class="banner_wrap">
-            <img src="http://placehold.it/350x100">
-        </div>
-        
-        <div class="black_box">
+        <!-- Start sport -->
             <div class="item item-divider  item-assertive ">
-                <h2 class="title ">לילות אשדוד</h2>
+                <h2 class="title">ספורט</h2>
             </div>
-            <div ng-repeat="item in items.nights" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+            <div ng-repeat="item in items.sport" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+                <div class=" item item-body no_top_padding">
+                    <div class="row item item-thumbnail-right">
+                        <div class="col col-33">
+                            <img ng-src="{{item.images.imageXSmall}}">
+                        </div>
+                        <div class="col col-67">
+                            <p ng-bind-html="item.title"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="button button-small button-assertive button-left" href="#/app/sections/sport">עוד בספורט</a>
+        <!-- end sport -->
+
+        <!-- Start banner -->
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+        <!-- end banner -->
+
+        <!-- Start culture -->
+            <div class="item item-divider  item-assertive ">
+                <h2 class="title">תרבות</h2>
+            </div>
+            <div ng-repeat="item in items.culture" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+                <div class=" item item-body no_top_padding">
+                    <div class="row item item-thumbnail-right">
+                        <div class="col col-33">
+                            <img ng-src="{{item.images.imageXSmall}}">
+                        </div>
+
+                        <div class="col col-67">
+                            <p ng-bind-html="item.title"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד בתרבות</a>
+        <!-- end culture -->
+
+        <!-- Start banner -->
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+        <!-- end banner -->
+
+        <!-- Start nights -->
+            <div class="black_box">
+                <div class="item item-divider  item-assertive ">
+                    <h2 class="title ">לילות אשדוד</h2>
+                </div>
+                <div ng-repeat="item in items.nights" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+                    <div class="item item-body no_top_padding">
+                        <div class="item ">
+                            <img ng-src="{{item.images.imageXSmall}}">
+                            <p ng-bind-html="item.title"></p>
+                        </div>
+                    </div>
+                </div>
+                <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד לילות אשדוד</a>
+
+            </div>
+        <!-- end nights -->
+
+        <!-- Start banner -->
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+        <!-- end banner -->
+
+        <!-- Start business -->
+            <div class="item item-divider  item-assertive ">
+                <h2 class="title">עסקים</h2>
+            </div>
+            <div ng-repeat="item in items.business" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
                 <div class="item item-body no_top_padding">
-                    <div class="item item-thumbnail-right">
-                        <img ng-src="{{item.images.imageXSmall}}">
+                    <div class="row item item-thumbnail-right">
+                        <div class="col col-33">
+                            <img ng-src="{{item.images.imageXSmall}}">
+                        </div>
+                        <div class="col col-67">
+                            <p ng-bind-html="item.title"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד בתרבות</a>
+        <!-- end business -->
+
+        <!-- Start banner -->
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+        <!-- end banner -->
+
+        <!-- Start religion -->
+        <div class="item item-divider  item-assertive ">
+            <h2 class="title">דת ומסורת</h2>
+        </div>
+        <div ng-repeat="item in items.religion" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+            <div class="item item-body no_top_padding">
+                <div class="row item ">
+                    <div class="col">
                         <p ng-bind-html="item.title"></p>
                     </div>
                 </div>
             </div>
-            <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד לילות אשדוד</a>
-
         </div>
-        <div class="banner_wrap">
-            <img src="http://placehold.it/350x100">
-        </div>
+        <a class="button button-small button-assertive button-left" href="#/app/sections/religion">עוד בדת ומסורת</a>
+        <!-- end religion -->
 
-        
+        <!-- Start weekend --> 
         <div class="item item-divider  item-assertive ">
-            <h2 class="title">עסקים</h2>
+            <h2 class="title">סוף שבוע</h2>
         </div>
-        <div ng-repeat="item in items.business" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+        <div ng-repeat="item in items.weekend" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
             <div class="item item-body no_top_padding">
-                <div class="item item-thumbnail-right">
-                    <img ng-src="{{item.images.imageXSmall}}">
-                    <p ng-bind-html="item.title"></p>
+                <div class="row item ">
+                    <div class="col">
+                        <p ng-bind-html="item.title"></p>
+                    </div>
                 </div>
             </div>
         </div>
-        <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד בתרבות</a>
-    </ion-content>
+        <a class="button button-small button-assertive button-left" href="#/app/sections/weekend">עוד בסוף שבוע</a>
+        <!-- end weekend -->
+
+        <!-- Start banner -->
+        <div class="banner_wrap">
+            <img src="http://placehold.it/350x100">
+        </div>
+        <!-- end banner -->
+
+
+</ion-content>
 </ion-view>
