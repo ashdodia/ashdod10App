@@ -118,6 +118,12 @@ angular.module('starter.controllers', [])
         return Math.ceil($scope.total / $scope.itemsPerPage);
     };
 
+    $scope.setPage = function (n) {
+        if (n > 0 && n < $scope.pageCount()) {
+            $scope.currentPage = n;
+        }
+    };
+
     $scope.$watch("currentPage", function (newValue, oldValue) {
         FeedService.getK2CategoryContent($stateParams.sectionId, $scope.itemsPerPage, newValue, featured, $scope.successGetSectionContent, $scope.errorGetSectionContent);
         $scope.total = Item.total();
