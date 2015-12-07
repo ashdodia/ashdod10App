@@ -4,11 +4,23 @@
 
         <!-- Start featured -->
         <ion-slide-box on-slide-changed="slideHasChanged($index)" style="direction:ltr" show-pager="false" auto-play="true" does-continue="true">
-            <ion-slide  ng-repeat="item in items.featured" ng-click=" goToContent(item.id)">
-                <div class="featured_wrap">
-                    <img ng-src="{{item.images.imageXSmall}}">
-                    <h3  ng-bind-html="item.title"></h3>
-                </div>
+            <ion-slide  ng-repeat="item in items.featured" ng-click=" goToContent(item.id)" >
+                <div class="featured_wrap row responsive-sm">
+
+                    <div class="col ">
+
+                        <h3 class="tablet_only" ng-bind-html="item.title"></h3>
+                        <p class="tablet_only padding" ng-bind-html="item.content | limitTo:200"></p>
+                        <button style="margin:10px ;" class="tablet_only button  button-assertive " href="goToContent(item.id)">לכתבה המלאה</button>
+                        <div class="text-wrap  tablet_only padding">
+                            <span>{{item.created}}</span> | <span>{{item.author}}</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img ng-src="{{item.images.imageXSmall}}">
+                        <h3 class="mobile_only" ng-bind-html="item.title"></h3>
+                    </div>
+                    </div>
             </ion-slide>
         </ion-slide-box>
         <!-- end featured -->
@@ -32,7 +44,8 @@
                             <img ng-src="{{item.images.imageXSmall}}">
                         </div>
                         <div class="col">
-                            <p ng-bind-html="item.title"></p>
+                            <h2 ng-bind-html="item.title"></h2>
+                            <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
                         </div>
                     </div>
                 </div>
@@ -42,7 +55,8 @@
                             <img ng-src="{{item.images.imageXSmall}}">
                         </div>
                         <div class="col col-67">
-                            <p ng-bind-html="item.title"></p>
+                            <h2 ng-bind-html="item.title"></h2>
+                            <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +83,8 @@
                             <img ng-src="{{item.images.imageXSmall}}">
                         </div>
                         <div class="col col-67">
-                            <p ng-bind-html="item.title"></p>
+                            <h2 ng-bind-html="item.title"></h2>
+                            <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
                         </div>
                     </div>
                 </div>
@@ -97,7 +112,8 @@
                         </div>
 
                         <div class="col col-67">
-                            <p ng-bind-html="item.title"></p>
+                            <h2 ng-bind-html="item.title"></h2>
+                            <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
                         </div>
                     </div>
                 </div>
@@ -118,14 +134,16 @@
                 <div class="item item-divider  item-assertive ">
                     <h2 class="title ">לילות אשדוד</h2>
                 </div>
-                <div ng-repeat="item in items.nights" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
-                    <div class="item item-body no_top_padding">
-                        <div class="item ">
+                <div ng-repeat="item in items.nights" class="list list-inset no_borders hp_item_warp col no_top_padding " ng-click="goToContent(item.id)" >
+                    <div class="item item-body " >
+                        
                             <img ng-src="{{item.images.imageXSmall}}">
-                            <p ng-bind-html="item.title"></p>
-                        </div>
+                            <h2 ng-bind-html="item.title"></h2>
+                            <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
+                        
                     </div>
                 </div>
+                   
                 <a class="button button-small button-assertive button-left" href="#/app/sections/culture">עוד לילות אשדוד</a>
 
             </div>
@@ -148,7 +166,8 @@
                             <img ng-src="{{item.images.imageXSmall}}">
                         </div>
                         <div class="col col-67">
-                            <p ng-bind-html="item.title"></p>
+                            <h2 ng-bind-html="item.title"></h2>
+                            <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
                         </div>
                     </div>
                 </div>
@@ -162,37 +181,48 @@
         </div>
         <!-- end banner -->
 
-        <!-- Start religion -->
-        <div class="item item-divider  item-assertive ">
-            <h2 class="title">דת ומסורת</h2>
-        </div>
-        <div ng-repeat="item in items.religion" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
-            <div class="item item-body no_top_padding">
-                <div class="row item ">
-                    <div class="col">
-                        <p ng-bind-html="item.title"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="button button-small button-assertive button-left" href="#/app/sections/religion">עוד בדת ומסורת</a>
-        <!-- end religion -->
+      <div class="row responsive-sm" >
+          <div class="col-50">
+              <!-- Start religion -->
+              <div class="item item-divider  item-assertive ">
+                  <h2 class="title">דת ומסורת</h2>
+              </div>
+              <div ng-repeat="item in items.religion" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+                  <div class="item item-body no_top_padding">
+                      <div class="row item ">
+                          <div class="col">
+                              <h2 ng-bind-html="item.title"></h2>
+                              <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <a class="button button-small button-assertive button-left" href="#/app/sections/religion">עוד בדת ומסורת</a>
+              <!-- end religion -->
+          </div>
 
-        <!-- Start weekend --> 
-        <div class="item item-divider  item-assertive ">
-            <h2 class="title">סוף שבוע</h2>
-        </div>
-        <div ng-repeat="item in items.weekend" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
-            <div class="item item-body no_top_padding">
-                <div class="row item ">
-                    <div class="col">
-                        <p ng-bind-html="item.title"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="button button-small button-assertive button-left" href="#/app/sections/weekend">עוד בסוף שבוע</a>
-        <!-- end weekend -->
+          <div class="col-50">
+              <!-- Start weekend -->
+              <div class="item item-divider  item-assertive ">
+                  <h2 class="title">סוף שבוע</h2>
+              </div>
+              <div ng-repeat="item in items.weekend" class="list list-inset no_borders hp_item_warp "  ng-click="goToContent(item.id)">
+                  <div class="item item-body no_top_padding">
+                      <div class="row item ">
+                          <div class="col">
+                              <h2 ng-bind-html="item.title"></h2>
+                              <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <a class="button button-small button-assertive button-left" href="#/app/sections/weekend">עוד בסוף שבוע</a>
+              <!-- end weekend -->
+          </div>
+
+          </div> 
+
+        
 
         <!-- Start banner -->
         <div class="banner_wrap">
