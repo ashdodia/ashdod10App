@@ -51,6 +51,8 @@ angular.module('starter.controllers', [])
         $state.go('app.content', { contentId: id });
     };
 
+
+
 })
 
 .controller('K2CategoryCtrl', function ($scope, $state, $stateParams, $ionicPopup, FeedService) {
