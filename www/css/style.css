@@ -94,6 +94,10 @@ border-right: 0px;
 .featured_wrap img{margin-bottom:0; padding-bottom:0;}
 .featured_wrap h3{ direction:rtl; background:#ec1b23; margin-top:0;  padding:0 10px; color:#fff;}
 
+
+.pagination li{display:inline-block;}
+.pagination{display:table; margin: 10px auto;}
+
 @media only screen and (max-width: 480px) {
     img{ width:100%; max-width:none;
     height: auto;}
