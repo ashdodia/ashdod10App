@@ -23,8 +23,7 @@
             $http.get(feeds[category] + "&limit=" + limit + "&page=" + page + "&featured=" + featured, { cache: true })
                
             .success(function (data, status, headers, config) {
-                //var mycache = $cacheFactory.get('$http');
-                console.log("MYCONFIG: " + JSON.stringify($http.defaults.cache, null, 4))
+                //console.log("MYCONFIG: " + JSON.stringify($http.defaults.cache, null, 4))
                 //console.log(feeds[category] + "&limit=" + limit + "&page=" + page + "&featured=" + featured)
                 successCallback(category, data);
             })

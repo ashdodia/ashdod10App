@@ -8,9 +8,21 @@
           <div class="item item-thumbnail-right">
               <img ng-src="{{item.images.imageXSmall}}">
               <p ng-bind-html="item.title"></p>
-              
           </div>
        </div>
     </div>
+      <div class="pagination">
+          <ul>
+              <li ng-class="prevPageDisabled()">
+                  <a href ng-click="prevPage()">« Prev</a>
+              </li>
+              <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                  <a href="#">{{n+1}}</a>
+              </li>
+              <li ng-class="nextPageDisabled()">
+                  <a href ng-click="nextPage()">Next »</a>
+              </li>
+          </ul>
+      </div>
   </ion-content>
 </ion-view>
