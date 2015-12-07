@@ -4,10 +4,19 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.controllers', 'starter.cache'])
+angular.module('starter', ['ionic','ionic.service.core', 'starter.services', 'starter.controllers', 'starter.cache'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
+
+        var push = new Ionic.Push({
+            "debug": true
+        });
+
+        push.register(function (token) {
+            console.log("Device token:", token.token);
+        });
+
         var dialogBody = parent.document.getElementById("exec-dialog");
         var overlay = parent.document.querySelector(".ui-widget-overlay");
         var ngDialog = angular.element(dialogBody.parentElement);
