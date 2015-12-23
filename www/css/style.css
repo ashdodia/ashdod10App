@@ -1,19 +1,6 @@
-﻿@font-face {
-  font-family: 'FbReformaNarrow';
-  src: url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.eot'); /* IE9 Compat Modes */
-  src: url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.woff') format('woff'), /* Modern Browsers */
-       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.svg#svgFontName') format('svg'); /* Legacy iOS */
-}
-
-
-
-
-body {direction:rtl; font-family: 'FbReformaNarrow';}
-h1 , h2, h3 , h4 , p{font-family: 'FbReformaNarrow';}
+﻿
 /**** ashdod10 ****/
-.scroll-content{direction:rtl;}
+
 img{max-width:100%;}
 .header-item{text-align:center;}
 .nav-bar-block img {
@@ -92,6 +79,7 @@ border-right: 0px;
 .item p , .item-body{font-size:20px;}
 .app_menu a{font-size:22px;}
 
+.featured_wrap {background: #ec1b23;}
 .featured_wrap img{margin-bottom:0; padding-bottom:0;}
 .featured_wrap h3{ direction:rtl; background:#ec1b23; margin-top:0;  padding:0 10px; color:#fff;}
 .featured_wrap p{ font-size:20px;}

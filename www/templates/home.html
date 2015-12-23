@@ -1,26 +1,14 @@
 ﻿<ion-view view-title='<img src="img/top_logo.png">'>
     <ion-content>
-
-
         <!-- Start featured -->
-        <ion-slide-box on-slide-changed="slideHasChanged($index)" style="direction:ltr" show-pager="false" auto-play="true" does-continue="true">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)"  show-pager="false" auto-play="true" does-continue="true">
             <ion-slide  ng-repeat="item in items.featured" ng-click=" goToContent(item.id)" >
                 <div class="featured_wrap row responsive-sm">
-
-                    <div class="col ">
-
-                        <h3 class="tablet_only" ng-bind-html="item.title"></h3>
-                        <p class="tablet_only padding" ng-bind-html="item.content | limitTo:200"></p>
-                        <button style="margin:10px ;" class="tablet_only button  button-assertive " href="goToContent(item.id)">לכתבה המלאה</button>
-                        <div class="text-wrap  tablet_only padding">
-                            <span>{{item.created}}</span> | <span>{{item.author}}</span>
-                        </div>
-                    </div>
                     <div class="col">
                         <img ng-src="{{item.images.imageXSmall}}">
                         <h3 class="mobile_only" ng-bind-html="item.title"></h3>
                     </div>
-                    </div>
+                </div>
             </ion-slide>
         </ion-slide-box>
         <!-- end featured -->
