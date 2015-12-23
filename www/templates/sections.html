@@ -1,14 +1,19 @@
 ﻿<ion-view  view-title='<img src="img/top_logo.png">'>
-  <div class="bar bar-subheader">
-        <h3 class="title">{{items[0].category_name}}</h3>
-  </div>
-  <ion-content class="has-subheader">
-    <div ng-repeat="item in items" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)">
+  
+        
+  
+  <ion-content>
+      <h1 class="more_title">{{items[0].category_name}}</h1>
+    <div ng-repeat="item in items" class="list list-inset no_borders hp_item_warp" ng-click="goToContent(item.id)"  ng-class-odd="'odd'" ng-class-even="'even'">
       <div class="item item-body">
-          <div class="item item-thumbnail-right">
-              <img ng-src="{{item.images.imageXSmall}}">
-              <h2 ng-bind-html="item.title"></h2>
-              <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
+          <div class="row item item-thumbnail-right">
+              <div class="col col-33">
+                  <img ng-src="{{item.images.imageXSmall}}">
+              </div>
+              <div class="col col-67">
+                  <h2 ng-bind-html="item.title"></h2>
+                  <p class="tablet_only" ng-bind-html="item.content | limitTo:200"></p>
+              </div>
           </div>
        </div>
     </div>

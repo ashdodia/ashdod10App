@@ -1,12 +1,51 @@
-﻿
-/**** ashdod10 ****/
+﻿/* RTL */
+.list, p , h1 ,h2, h3 ,h4, h5, h6 , .item-body{direction:rtl; }
 
+ h1 ,h2, h3 ,h4, h5, h6{font-family: 'FbReformaNarrow';}
+ p , .button{font-family: 'Open Sans Hebrew', sans-serif;}
+ 
+.list.even{background:#e3e3e3 !important;}
+
+/**** ashdod10 ****/
+@font-face {
+  font-family: 'http://ashdod10.co.il/templates/gantry/css/FbReformaNarrow';
+  src: url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.eot'); /* IE9 Compat Modes */
+  src: url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.woff') format('woff'), /* Modern Browsers */
+       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('http://ashdod10.co.il/templates/gantry/css/reformanarrowmediumwebfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+@import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+.header-item{left:auto !important;}
 img{max-width:100%;}
 .header-item{text-align:center;}
-.nav-bar-block img {
-    max-height: 100%;
-    margin-top:5px;
-}
+.nav-bar-block img {max-height: 100%; margin-top:5px;}
+/**** Start Page *****/
+
+.more_title{font-size:25px; color:#ef473a;border-bottom:1px solid #ef473a; margin-top:10px;}
+
+.even .row{background:#eeeeee !important;}
+.inner_title{margin-bottom:0 !important; padding-bottom:0;}
+.item p{font-size:16px;}
+
+.featured_wrap .img_wrap{margin-bottom:0; padding-bottom:0; height:170px; width:100%; background-repeat:no-repeat !important; background-position:center !important; background-size:cover; position:relative;}
+.featured_wrap img{margin-bottom:0; padding-bottom:0; max-height:150px; width:auto;}
+.featured_wrap h2{ direction:rtl; margin-top:0;  color:#333; font-size:28px;  line-height:26px;}
+.featured_wrap p{ font-size:16px; color:#666; }
+.featured_wrap .list{border-bottom:1px solid #ef473a; margin-bottom:10px }
+.featured_wrap .list:last-child{border-bottom:none;}
+.featured_wrap .time_and_date{position:absolute; bottom:0; left:0;background:#ef473a; padding:0 5px; font-size:14px; color:#fff; margin:0;}
+
+.no_borders .item{border: 0px !important}
+
+/* Item */
+.item-body .img_wrap .date_and_author{position:absolute; bottom:0; left:0;background:#ef473a; padding:0 5px; font-size:14px; color:#fff; margin:0;}
+.item-body .img_wrap{margin-bottom:0; padding-bottom:0; height:250px; width:100%; background-repeat:no-repeat !important; background-position:center !important; background-size:cover; position:relative;}
+.item-body , .item-body p{line-height:24px;}
+
+
+
 .card, .list-inset{margin:2px;}
 .item-body{padding:0;}
 .item.item-body{border-radius:0 !important;}
@@ -16,21 +55,9 @@ img{max-width:100%;}
     margin-top:0;
 }
 
-.no_borders .item
-{
-border-top: 0px !important;
-border-left: 0px;
-border-right: 0px;
-}
-/*
-.hp_item_warp  img{
-    max-width: none !important;
-    width: 35% !important;
-}
-*/
-.hp_item_warp p{
-    font-size:18px;
-}
+
+
+
 
 .button-left{
     float:left;
@@ -79,14 +106,9 @@ border-right: 0px;
 .item p , .item-body{font-size:20px;}
 .app_menu a{font-size:22px;}
 
-.featured_wrap {background: #ec1b23;}
-.featured_wrap img{margin-bottom:0; padding-bottom:0;}
-.featured_wrap h3{ direction:rtl; background:#ec1b23; margin-top:0;  padding:0 10px; color:#fff;}
-.featured_wrap p{ font-size:20px;}
-
 
 .pagination li{display:inline-block;}
-.pagination{display:table; margin: 10px auto;}
+.pagination{display:table; margin: 10px auto; }
 
 
 .tablet_only{direction:rtl;}
